@@ -1,1 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 宓珂璟</title><link>/post/</link><description>Recent content in Posts on 宓珂璟</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 10 Sep 2022 21:02:32 +0800</lastBuildDate><atom:link href="/post/rss.xml" rel="self" type="application/rss+xml"/><item><title>支持用户自定义设计</title><link>/post/custom-files.html</link><pubDate>Sat, 10 Sep 2022 21:02:32 +0800</pubDate><guid>/post/custom-files.html</guid><description>&lt;p>对于熟悉前端开发的用户来说，可以通过自定义文件配置，实现对站点的样式和布局进行个性化的调整。其中布局方面主要是支持左侧边栏的站点概览部分，以及站点底部2个位置，但样式的重置可以是整个站点的任意位置。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 宓珂璟</title><link>https://deftmkj.github.io/post/</link><description>Recent content in Posts on 宓珂璟</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 18 Dec 2022 12:28:58 +0800</lastBuildDate><atom:link href="https://deftmkj.github.io/post/rss.xml" rel="self" type="application/rss+xml"/><item><title>IOS内存管理初始篇</title><link>https://deftmkj.github.io/post/ios%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%88%9D%E5%A7%8B%E7%AF%87/</link><pubDate>Sun, 18 Dec 2022 12:28:58 +0800</pubDate><guid>https://deftmkj.github.io/post/ios%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%88%9D%E5%A7%8B%E7%AF%87/</guid><description>&lt;p>iOS内存管理初始篇&lt;/p>
+&lt;h3 id="1-why-reduce-memory">1. Why Reduce Memory&lt;/h3>
+&lt;ul>
+&lt;li>更好的用户体验
+&lt;ul>
+&lt;li>启动更快&lt;/li>
+&lt;li>系统表现更好&lt;/li>
+&lt;li>App存留时间更长&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-memory-footprint">2. Memory Footprint&lt;/h3>
+&lt;p>Not all memory is created equal&lt;/p>
+&lt;p>
+&lt;a href="https://juejin.cn/post/6844903621276991502#heading-3" title="https://juejin.cn/post/6844903621276991502#heading-3" rel="noopener external nofollow noreferrer" target="_blank" class=" exturl">
+https://juejin.cn/post/6844903621276991502#heading-3
+&lt;i class="fa fa-external-link-alt">&lt;/i>
+&lt;/a>&lt;/p>
+&lt;h3 id="3-命令">3. 命令&lt;/h3>
+&lt;h4 id="31-vmmap">3.1 &lt;code>vmmap&lt;/code>&lt;/h4>
+&lt;p>查看详细报告&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>vmmap xxx.memgraph
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看摘要报告&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>vmmap --summary xxx.memgraph
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>配合&lt;code>grep&lt;/code>命令查看所有动态库的Dirty Pages的综合&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>vmmap -pages xxx.memgraph | grep &amp;#39;.dylib&amp;#39; | awk &amp;#39;{sum += $6} END { print &amp;#34;Total Dirty Pages:&amp;#34;sum}&amp;#39;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>只显示内存异常相关模块的数据&lt;code>CGImage&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>vmmap xx.memgraph | grep &amp;#39;CG image&amp;#39;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更多文档&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>man vvmap
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>man leaks
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>man heap
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="32-leaks">3.2 leaks&lt;/h4>
+&lt;p>查看泄漏的内存&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>leaks xxx.memgraph
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看某处的内存泄漏&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>leaks --traceTree [address] xxx.memgraph
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="33-heap">3.3 heap&lt;/h4>
+&lt;p>查看所有堆区对象的内存使用&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>heap xxx.memgraph
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>默认情况下是按照对象数量进行排序的，通常情况他们不会造成什么内存问题。我们关心的是内存大小，因此按照&lt;code>-sortBySize&lt;/code>的方式进行大小顺序来查看所有堆区对象的使用&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>heap xxx.memgraph -sortBySize
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>有了这些对象的内存地址后，我们还需要工具进行下一步分析。&lt;/p>
+&lt;h4 id="34--malloc_history">3.4 malloc_history&lt;/h4>
+&lt;p>开启：&lt;/p>
+&lt;p>在 &lt;code>Product -&amp;gt; Scheme -&amp;gt; Edit Scheme -&amp;gt; Diagnostics&lt;/code> 中，开启 &lt;code>Malloc Stack&lt;/code> 功能，建议使用 &lt;code>Live Allocations Only&lt;/code> 选项&lt;/p>
+&lt;p>查看内存分配历史&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>malloc_history xxx.memgraph [address]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>malloc_history xxx.memgraph --fullStacks [address]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>支持用户自定义设计</title><link>https://deftmkj.github.io/post/custom-files.html</link><pubDate>Sat, 10 Sep 2022 21:02:32 +0800</pubDate><guid>https://deftmkj.github.io/post/custom-files.html</guid><description>&lt;p>对于熟悉前端开发的用户来说，可以通过自定义文件配置，实现对站点的样式和布局进行个性化的调整。其中布局方面主要是支持左侧边栏的站点概览部分，以及站点底部2个位置，但样式的重置可以是整个站点的任意位置。&lt;/p></description></item></channel></rss>
