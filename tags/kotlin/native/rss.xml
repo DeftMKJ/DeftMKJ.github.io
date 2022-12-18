@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kotlin/Native on MK's Life</title><link>https://deftmkj.github.io/tags/kotlin/native/</link><description>Recent content in Kotlin/Native on MK's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="https://deftmkj.github.io/tags/kotlin/native/rss.xml" rel="self" type="application/rss+xml"/><item><title>KMM（Kotlin Multiplatform Mobile）Welcome to Kotlin/Native World</title><link>https://deftmkj.github.io/post/kmm/kotlin-native/</link><pubDate>Sun, 18 Dec 2022 22:18:44 +0800</pubDate><guid>https://deftmkj.github.io/post/kmm/kotlin-native/</guid><description>&lt;h3 id="1-什么是kotlinnative">1. 什么是Kotlin/Native&lt;/h3>
+&lt;blockquote>
+&lt;p>Kotlin/Native是一种将Kotlin源码编译成不需要任何VM支持的目标平台二进制数据的技术，编译后的产物可以直接运行在目标平台上，设计Kotlin/Native的目的是支持在非JVM环境下进行编程，如在嵌入式平台和iOS环境下，如此一来，Kotlin就可以运行在非JVM平台环境下&lt;/p>
+&lt;/blockquote></description></item><item><title>KMM（Kotlin Multiplatform Mobile）Welcome to Kotlin/Native World</title><link>https://deftmkj.github.io/post/kmm/kotlin-native/</link><pubDate>Sun, 18 Dec 2022 22:18:44 +0800</pubDate><guid>https://deftmkj.github.io/post/kmm/kotlin-native/</guid><description>&lt;h3 id="1-什么是kotlinnative">1. 什么是Kotlin/Native&lt;/h3>
+&lt;blockquote>
+&lt;p>Kotlin/Native是一种将Kotlin源码编译成不需要任何VM支持的目标平台二进制数据的技术，编译后的产物可以直接运行在目标平台上，设计Kotlin/Native的目的是支持在非JVM环境下进行编程，如在嵌入式平台和iOS环境下，如此一来，Kotlin就可以运行在非JVM平台环境下&lt;/p>
+&lt;/blockquote></description></item></channel></rss>
